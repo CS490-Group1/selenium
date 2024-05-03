@@ -11,16 +11,28 @@ import seleniumFunctions
 
 
 driver = webdriver.Edge()
-driver.get("http://localhost:3000/login")  # Open the website
+driver.get("http://localhost:3000/vehicles")  # Open the website
 driver.maximize_window()  # Open the browser in full screen
 time.sleep(2)  # Wait for 2 seconds for the page to load
+
+random_number = random.randint(5, 100)
+random_vehicle = driver.find_elements(By.CSS_SELECTOR, 'a.link-to-vehicle')[random_number]
+random_vehicle.click()
+time.sleep(4)  # Wait for 3 seconds to see the changes
+
+login_to_purchase_vehicle = driver.find_element(By.ID, 'Login-to-purchase-vehicle')
+login_to_purchase_vehicle.click()
+time.sleep(2)  # Wait for 1 second for the form to load
 
 seleniumFunctions.log_into_existing_account(driver, 'customer@foyotahaven.com', 'Admin123')
 
 driver.get("http://localhost:3000/vehicles")  # Open the website
 time.sleep(3)  # Wait for 2 seconds for the page to load
 
-seleniumFunctions.select_random_vehicle(driver)
+random_number = random.randint(5, 100)
+random_vehicle = driver.find_elements(By.CSS_SELECTOR, 'a.link-to-vehicle')[random_number]
+random_vehicle.click()
+time.sleep(4)  # Wait for 3 seconds to see the changes
 
 # Select 'Paterson' in the 'city' dropdown
 city = Select(driver.find_element(By.NAME,'city'))
@@ -76,7 +88,23 @@ log_out_button.click()
 driver.get("http://localhost:3000/login")  # Open the website
 time.sleep(2)  # Wait for 2 seconds for the page to load
 
-seleniumFunctions.log_into_existing_account(driver, 'manager@foyotahaven.com', 'Admin123')
+login_button = driver.find_element(By.ID, 'log-in')
+login_button.click()
+time.sleep(1)  # Wait for 1 second for the form to load
+
+# Fill out the login form
+email = driver.find_element(By.ID, 'email')
+email.send_keys('manager@foyotahaven.com')
+time.sleep(0.75)
+
+password = driver.find_element(By.ID, 'password')
+password.send_keys('Admin123')
+time.sleep(0.75)
+
+# Click the 'Log In' button to submit the form
+login_button = driver.find_element(By.CSS_SELECTOR, '.aws-btn.aws-btn--primary.aws-btn--visible.false.aws-btn--progress')
+login_button.click()
+time.sleep(4)
 
 manager_panel = driver.find_element(By.CSS_SELECTOR, '.hiddenPanels')
 manager_panel.click()
@@ -111,7 +139,23 @@ driver.get("http://localhost:3000/login")  # Open the website
 time.sleep(2)  # Wait for 2 seconds for the page to load
 
 
-seleniumFunctions.log_into_existing_account(driver, 'customer@foyotahaven.com', 'Admin123')
+login_button = driver.find_element(By.ID, 'log-in')
+login_button.click()
+time.sleep(1)  # Wait for 1 second for the form to load
+
+# Fill out the login form
+email = driver.find_element(By.ID, 'email')
+email.send_keys('customer@foyotahaven.com')
+time.sleep(0.75)
+
+password = driver.find_element(By.ID, 'password')
+password.send_keys('Admin123')
+time.sleep(0.75)
+
+# Click the 'Log In' button to submit the form
+login_button = driver.find_element(By.CSS_SELECTOR, '.aws-btn.aws-btn--primary.aws-btn--visible.false.aws-btn--progress')
+login_button.click()
+time.sleep(4)
 
 driver.get("http://localhost:3000/myaccount")  # Open the website
 time.sleep(3)  # Wait for 2 seconds for the page to load
