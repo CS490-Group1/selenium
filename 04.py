@@ -28,7 +28,7 @@ city.select_by_visible_text('Paterson')
 time.sleep(1)
 
 hr = "09"
-min = "11"
+min = "08"
 test_drive_date = datetime.now() + timedelta(days=3)
 formatted_date = test_drive_date.strftime('%m%d%Y')
 formatted_time = test_drive_date.strftime(f'{hr}{min}a')
@@ -98,9 +98,6 @@ for test_drive in test_drives:
         approve_button.click()
 
         time.sleep(5)
-
-        # close_button = driver.find_element(By.CSS_SELECTOR, '.close-modal')
-        # close_button.click()
 
         break  # Exit the loop after clicking the matching test drive
 
