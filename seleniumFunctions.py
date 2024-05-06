@@ -51,3 +51,19 @@ def select_random_vehicle(driver):
     random_vehicle = driver.find_elements(By.CSS_SELECTOR, 'a.link-to-vehicle')[random_number] 
     random_vehicle.click()
     time.sleep(4)  # Wait for 3 seconds to see the changes
+
+def logout(driver):
+    """
+    Logs out of the current account.
+
+    Args:
+        driver: The Selenium WebDriver instance.
+
+    Returns:
+        None
+    """
+
+    # Find the logout button element by its ID and click it
+    logout_button = driver.find_element(By.ID, 'logout')
+    logout_button.click()
+    time.sleep(2) # Wait for 2 seconds
