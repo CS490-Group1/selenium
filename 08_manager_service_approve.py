@@ -51,6 +51,7 @@ submit_button.click()
 time.sleep(4)
 
 driver.switch_to.alert.accept()
+time.sleep(3)
 
 seleniumFunctions.logout(driver)
 

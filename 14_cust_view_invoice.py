@@ -9,7 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import seleniumFunctions
 
-email = "customer1"
+email = "bobsmith"
 last="gmail"
 
 driver = webdriver.Edge()
@@ -26,8 +26,11 @@ payments_button = driver.find_element(By.NAME, 'myPayments')
 payments_button.click()
 time.sleep(7) #wait for things to load
 
-random_number = random.randint(0, 3)
 trans_option = Select(driver.find_element(By.NAME, 'transaction'))
+random_number = random.randint(0, len(trans_option.options)-1)
+# option = trans_option.options[random_number]
+# trans_option.select_by_visible_text(option.text)
+# print(len(trans_option.options))
 trans_option.select_by_index(random_number)
 time.sleep(3)
 

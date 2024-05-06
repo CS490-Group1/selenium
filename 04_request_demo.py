@@ -9,7 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import seleniumFunctions
 
-email = "customer1"
+email = "BobSmith"
 last="gmail"
 
 driver = webdriver.Edge()
@@ -30,7 +30,7 @@ city.select_by_visible_text('Paterson')
 time.sleep(1)
 
 hr = "09"
-min = "08"
+min = "00"
 test_drive_date = datetime.now() + timedelta(days=3)
 formatted_date = test_drive_date.strftime('%m%d%Y')
 formatted_time = test_drive_date.strftime(f'{hr}{min}a')

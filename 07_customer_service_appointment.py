@@ -9,8 +9,8 @@ import seleniumFunctions
 from selenium.webdriver.common.keys import Keys
 from datetime import datetime, timedelta
 
-email = "customer"
-last="foyotahaven"
+email = "bobsmith"
+last="gmail"
 
 driver = webdriver.Edge()
 driver.get("http://localhost:3000/services")
