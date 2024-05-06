@@ -13,8 +13,8 @@ register_button = driver.find_element(By.CSS_SELECTOR, '.btn-modal')
 register_button.click()
 time.sleep(1)  # Wait for 1 second for the form to load
 
-fname="Jose1"
-lname="Ventura"
+fname="Customer"
+lname="1"
 
 # Fill out the registration form
 first_name = driver.find_element(By.ID, 'first_name')

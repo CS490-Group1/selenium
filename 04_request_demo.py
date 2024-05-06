@@ -9,13 +9,15 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import seleniumFunctions
 
+email = "customer1"
+last="gmail"
 
 driver = webdriver.Edge()
 driver.get("http://localhost:3000/login")  # Open the website
 driver.maximize_window()  # Open the browser in full screen
 time.sleep(2)  # Wait for 2 seconds for the page to load
 
-seleniumFunctions.log_into_existing_account(driver, 'customer@foyotahaven.com', 'Admin123')
+seleniumFunctions.log_into_existing_account(driver, f'{email}@{last}.com', 'Admin123')
 
 driver.get("http://localhost:3000/vehicles")  # Open the website
 time.sleep(3)  # Wait for 2 seconds for the page to load
@@ -101,14 +103,13 @@ for test_drive in test_drives:
 
         break  # Exit the loop after clicking the matching test drive
 
-log_out_button = driver.find_element(By.ID, 'logout')
-log_out_button.click()
+seleniumFunctions.logout(driver)
 
 driver.get("http://localhost:3000/login")  # Open the website
 time.sleep(2)  # Wait for 2 seconds for the page to load
 
 
-seleniumFunctions.log_into_existing_account(driver, 'customer@foyotahaven.com', 'Admin123')
+seleniumFunctions.log_into_existing_account(driver, f'{email}@{last}.com', 'Admin123')
 
 driver.get("http://localhost:3000/myaccount")  # Open the website
 time.sleep(3)  # Wait for 2 seconds for the page to load
