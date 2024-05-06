@@ -7,7 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import seleniumFunctions
 
-email = "customer1"
+email = "bobsmith"
 back = "gmail"
 
 driver = webdriver.Edge()

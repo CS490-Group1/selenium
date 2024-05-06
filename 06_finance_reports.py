@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import Select
 
 import seleniumFunctions
 
-email = "customer2"
+# email = "bobsmith"
 
 driver = webdriver.Edge()
 driver.get("http://localhost:3000/login")

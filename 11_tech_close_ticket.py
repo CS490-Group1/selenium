@@ -30,6 +30,7 @@ closable_appointment.click()
 time.sleep(4)
 
 service_comments = driver.find_element(By.CSS_SELECTOR, '.comment-input')
+service_comments.clear()
 service_comments.send_keys("Random Comment")
 
 time.sleep(2) #show comment
